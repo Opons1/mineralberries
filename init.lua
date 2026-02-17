@@ -11,6 +11,7 @@
 --oreberries can be crafted into the ore block
 --technic support to maybe have an extractor make it go ot dust?
 --support for multiple mods
-function oreberries_register_bush(ore_node, ore, rarity, berries_per_ore, berries_per_bush, variants)
+--200-400 seconds per berry growth?
+function oreberries_register_bush(ore_node, ore, rarity, berries_per_ore, berries_per_bush, variant, textures)
   
 end
