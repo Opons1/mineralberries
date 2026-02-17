@@ -13,6 +13,18 @@
 --technic support to maybe have an extractor make it go ot dust?
 --support for multiple mods
 --200-400 seconds per berry growth?
+--SETTINGTYPES.TXT goals:
+--general rarity multiplier for each
+--general berry drop mult for each
+--enable/disable small bushes
+--enable/disable large bushes
+--enable/disable overgrown bushes
+--general growth speed multiplier for each
+--enable/disable required ore node below
+--enable/disable overgrown node consumption
+--enable/disable technic custom machine
+--enable/disable technic extractor recipes
+--enable/disable bush recipes
 function oreberries_register_bush(ore_node, ore, rarity, berries_per_ore, berries_per_bush, variant, textures)
   
 end
