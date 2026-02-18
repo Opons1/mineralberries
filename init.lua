@@ -24,9 +24,7 @@
 --enable/disable technic custom machine
 --enable/disable technic extractor recipes
 --enable/disable bush recipes
+mineralberries = {}
 dofile(minetest.get_modpath("mineralberries").."/settings.lua")
-dofile(minetest.get_modpath("mineralberries").."/growth.lua")
 dofile(minetest.get_modpath("mineralberries").."/api.lua")
-dofile(minetest.get_modpath("mineralberries").."/craft.lua")
-dofile(minetest.get_modpath("mineralberries").."/technic.lua")
 dofile(minetest.get_modpath("mineralberries").."/book.lua")
