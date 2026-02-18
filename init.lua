@@ -4,7 +4,6 @@
 --they will require an ore below them to grow, with overgrown consumng the ore after making 10 berries(TBD)
 --small can not require an ore, but it dies after a while.
 --easy api to register them hopefuly
---mberries_register(ore, ore_node, berries_per_ore, rarity)
 --by default bushes will spawn on the ore, with 3 adjacent blocks being air (via core.register_decoration)
 --faint glow(luminance: 3 maybe?)
 --can die when no ore below
@@ -25,6 +24,3 @@
 --enable/disable technic custom machine
 --enable/disable technic extractor recipes
 --enable/disable bush recipes
-function oreberries_register_bush(ore_node, ore, rarity, berries_per_ore, berries_per_bush, variant, textures)
-  
-end
