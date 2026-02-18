@@ -24,3 +24,9 @@
 --enable/disable technic custom machine
 --enable/disable technic extractor recipes
 --enable/disable bush recipes
+dofile(minetest.get_modpath("oreberries").."/settings.lua")
+dofile(minetest.get_modpath("oreberries").."/growth.lua")
+dofile(minetest.get_modpath("oreberries").."/api.lua")
+dofile(minetest.get_modpath("oreberries").."/craft.lua")
+dofile(minetest.get_modpath("oreberries").."/technic.lua")
+dofile(minetest.get_modpath("oreberries").."/book.lua")
