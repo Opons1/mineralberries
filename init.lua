@@ -1,3 +1,61 @@
 mineralberries = {}
 dofile(minetest.get_modpath("mineralberries").."/settings.lua")
 dofile(minetest.get_modpath("mineralberries").."/api.lua")
+--bushes
+--api: register_berry(ore, ore_name, oreblock, berry_texture, bush_texture, berry_bush_texture, berries_dropped, growth_timer)
+mineralberries.register_berry("default:coal_lump",
+    "Coal",
+    "default:stone_with_coal", 
+    "mineralberries_coal_bush_berries.png", 
+    "mineralberries_bush.png", 
+    "mineralberries_bush.png^mineralberries_coal_bush_berries.png",
+    3, 
+    300)
+mineralberries.register_berry("default:diamond",
+    "Diamond",
+    "default:stone_with_diamond",
+    "mineralberries_diamond_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_diamond_bush_berries.png",
+    5,
+    500)
+mineralberries.register_berry("default:copper_lump",
+    "Copper",
+    "default:stone_with_copper",
+    "mineralberries_copper_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_copper_bush_berries.png",
+    3,
+    300)
+mineralberries.register_berry("default:gold_lump",
+    "Gold",
+    "default:stone_with_gold",
+    "mineralberries_gold_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_gold_bush_berries.png",
+    9,
+    900)
+mineralberries.register_berry("default:iron_lump",
+    "Iron",
+    "default:stone_with_iron",
+    "mineralberries_iron_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_iron_bush_berries.png",
+    3,
+    300)
+mineralberries.register_berry("default:mese_crystal",
+    "Mese",
+    "default:stone_with_mese",
+    "mineralberries_mese_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_mese_bush_berries.png",
+    5,
+    500)
+mineralberries.register_berry("default:tin_lump",
+    "Tin",
+    "default:stone_with_tin",
+    "mineralberries_tin_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_tin_bush_berries.png",
+    4,
+    400)
