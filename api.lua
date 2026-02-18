@@ -4,7 +4,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
     local bush_name_with_berries = "mineralberries:"..ore_name .. "_bush_with_berries"
     local growth_timer = (growth_time or 300)/mineralberries.settings.growth_multiplier
     if bush_rarity then
-        bush_rarity = 1/bush_rarity*1/mineralberries.settings.rarity_multiplier
+        bush_rarity = 1/bush_rarity/mineralberries.settings.rarity_multiplier
     end
     core.register_craftitem(":"..berry_name, {
         description = ore_name .. " Berry",
