@@ -1,3 +1,4 @@
+--harvester, automatically farms the node below
 core.register_node("mineralberries:harvester", {
     description = "Mineral Berry Harvester",
     tiles = {"mineralberries_harvester_top.png", "mineralberries_harvester_bottom.png", "mineralberries_harvester_side.png"},
@@ -32,7 +33,9 @@ if mineralberries.settings.enable_harvester_craft == true then
         }
     })
 end
+--table with bush data to link the bushes to the bushes with berries and hold other info
 mineralberries.bushes = {}
+
 function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, bush_texture, berry_bush_texture, berries_dropped, growth_time, bush_rarity)
     local berry_name = "mineralberries:"..ore_name .. "_berry"
     local bush_name ="mineralberries:"..ore_name .. "_bush"
@@ -42,12 +45,14 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
         bush_rarity = 1/bush_rarity/mineralberries.settings.rarity_multiplier
     end
     mineralberries.bushes[bush_name_with_berries] = {name = bush_name, drops = berry_name.." "..berries_dropped}
+    --register berries
     core.register_craftitem(":"..berry_name, {
         description = ore_name .. " Berry",
         inventory_image = berry_texture,
         on_use = core.item_eat(0),
         groups = {mineralberries = 1}
     })
+    --ore craft recipe
     core.register_craft({
         output = ore,
         recipe = {
@@ -56,6 +61,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
             {"", "", ""},
         }
     })
+    --recipe to craft oreblocks bushes need to be placed on
     if mineralberries.settings.enable_oreblock_crafts then
         core.register_craft({
             output = oreblock,
@@ -66,6 +72,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
             }
         })
     end
+    --bush recipe
     if mineralberries.settings.enable_bush_crafts == true then
         core.register_craft({
             output = bush_name,
@@ -76,9 +83,10 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
             }
         })
     end
+    --bush
     core.register_node(":"..bush_name, {
         description = ore_name .. " Bush",
-        drawtype = "leaflike",
+        drawtype = "allfaces_optional",
         tiles = {bush_texture},
         groups = {snappy = 3, flammable = 2, mineralberry_bush = 1},
         on_construct = function(pos)
@@ -112,7 +120,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
     })
     core.register_node(":"..bush_name_with_berries, {
         description = ore_name .. " Bush (with Berries)",
-        drawtype = "leaflike",
+        drawtype = "allfaces_optional",
         tiles = {berry_bush_texture},
         groups = {snappy = 3, flammable = 2, mineralberries_grown = 1},
         drop = berry_name.." "..berries_dropped,
