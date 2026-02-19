@@ -1,12 +1,13 @@
 mineralberries.settings = {
-    rarity_multiplier = tonumber(minetest.settings:get("mineralberries_rarity_multiplier") or "1.0"),
-    drop_multiplier = tonumber(minetest.settings:get("mineralberries_drop_multiplier") or "1.0"),
-    growth_multiplier = tonumber(minetest.settings:get("mineralberries_growth_multiplier") or "1.0"),
+    rarity_multiplier = tonumber(minetest.settings:get("mineralberries_rarity_multiplier")) or 1,
+    drop_multiplier = tonumber(minetest.settings:get("mineralberries_drop_multiplier")) or 1,
+    growth_multiplier = tonumber(minetest.settings:get("mineralberries_growth_multiplier")) or 1,
 
-    require_ore_below = minetest.settings:get_bool("mineralberries_require_ore_below", true),
-    overgrown_consume_ore = minetest.settings:get_bool("mineralberries_overgrown_consumes_ore", true),
+    require_ore_below = minetest.settings:get_bool("mineralberries_require_ore_below") or true,
+    overgrown_consume_ore = minetest.settings:get_bool("mineralberries_overgrown_consumes_ore") or true,
 
-    enable_technic_extractor = minetest.settings:get_bool("mineralberries_enable_technic_extractor", true),
-    enable_bush_crafts = minetest.settings:get_bool("mineralberries_enable_bush_crafts", false),
-    enable_oreblock_crafts = minetest.settings:get_bool("mineralberries_enable_oreblock_crafts", true),
+    enable_technic_extractor = minetest.settings:get_bool("mineralberries_enable_technic_extractor") or true,
+    enable_bush_crafts = minetest.settings:get_bool("mineralberries_enable_bush_crafts") or false,
+    enable_oreblock_crafts = minetest.settings:get_bool("mineralberries_enable_oreblock_crafts") or true,
+    enable_harvester_craft = minetest.settings:get_bool("mineralberries_enable_harvester_craft") or true,
 }
