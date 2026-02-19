@@ -72,6 +72,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
         name = "mineralberries:"..ore_name .. "_bush_decoration",
         deco_type = "simple",
         place_on = {oreblock},
+        flags = "all_floors",
         sidelen = 16,
         fill_ratio = bush_rarity or 0.01,
         y_max = 31000,
