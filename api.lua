@@ -98,7 +98,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
             local node_above = core.get_node({x=pos.x, y=pos.y+1, z=pos.z})
             local drops = berry_name.." "..berries_dropped
             local timer = core.get_node_timer(pos)
-            if mineralberries.settings.require_ore_below and node_below.name ~= oreblock then
+            if mineralberries.settings.require_ore_below == true and node_below.name ~= oreblock then
                 return
             end
             if node_above.name == "mineralberries:harvester" then
