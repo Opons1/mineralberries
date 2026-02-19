@@ -4,7 +4,6 @@ mineralberries.settings = {
     growth_multiplier = tonumber(minetest.settings:get("mineralberries_growth_multiplier")) or 1,
 
     require_ore_below = minetest.settings:get_bool("mineralberries_require_ore_below") or true,
-    overgrown_consume_ore = minetest.settings:get_bool("mineralberries_overgrown_consumes_ore") or true,
 
     enable_technic_extractor = minetest.settings:get_bool("mineralberries_enable_technic_extractor") or true,
     enable_bush_crafts = minetest.settings:get_bool("mineralberries_enable_bush_crafts") or false,
