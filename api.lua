@@ -29,13 +29,21 @@ if mineralberries.settings.enable_harvester_craft == true then
         recipe = {
             {"default:obsidian", "default:steelblock", "default:obsidian"},
             {"default:obsidian", "default:mese_crystal", "default:obsidian"},
-            {"default:obsidian", "group:mineralberry_bush", "default:obsidian"},
+            {"default:obsidian", "group:leaves", "default:obsidian"},
         }
     })
 end
 --table with bush data to link the bushes to the bushes with berries and hold other info
 mineralberries.bushes = {}
-
+--ore: the ore you want to generate, eg default:coal
+--ore_name: just prettier name, eg Coal
+--oreblock: the node the ore spawns and grows on, eg default:stone_with_coal
+--berry_texture: the texture of the berry in your inventory
+--bush_texture: The texture of the bush without berries
+--berry_bush_texture: the texture of the bush with berries
+--berres_dropped: the number of berries the bush generated, it takes 4 to craft an ore.
+--growth time: time it takes to grow berries
+--bush_rarity: how rare it is, bigger numbers is rarer
 function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, bush_texture, berry_bush_texture, berries_dropped, growth_time, bush_rarity)
     local berry_name = "mineralberries:"..ore_name .. "_berry"
     local bush_name ="mineralberries:"..ore_name .. "_bush"
@@ -143,7 +151,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
         technic.register_extractor_recipe({
             input = {berry_name .. " 3"},
             output = ore .. " 1",
-            time = 40,
+            time = 20,
         })
     end
 end
