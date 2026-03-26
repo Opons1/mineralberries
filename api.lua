@@ -97,6 +97,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
         drawtype = "allfaces_optional",
         tiles = {bush_texture},
         groups = {snappy = 3, flammable = 2, mineralberry_bush = 1},
+        light_source = 4,
         on_construct = function(pos)
             local timer = core.get_node_timer(pos)
             timer:start(growth_timer)
@@ -132,6 +133,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
         tiles = {berry_bush_texture},
         groups = {snappy = 3, flammable = 2, mineralberries_grown = 1},
         drop = berry_name.." "..berries_dropped,
+        light_source = 4,
         after_dig_node = function(pos)
             core.set_node(pos, {name = bush_name})
         end,
