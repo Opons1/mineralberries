@@ -1,6 +1,6 @@
 mineralberries = {}
-dofile(minetest.get_modpath("mineralberries").."/settings.lua")
-dofile(minetest.get_modpath("mineralberries").."/api.lua")
+dofile(core.get_modpath("mineralberries").."/settings.lua")
+dofile(core.get_modpath("mineralberries").."/api.lua")
 --bushes
 --api: register_berry(ore, ore_name, oreblock, berry_texture, bush_texture, berry_bush_texture, berries_dropped, growth_timer)
 --Coal
@@ -66,3 +66,58 @@ mineralberries.register_berry("default:tin_lump",
     "mineralberries_bush.png^mineralberries_tin_bush_berries.png",
     4,
     400)
+--moreores
+if core.get_modpath("moreores") then
+    mineralberries.register_berry("moreores:silver_lump",
+        "Silver",
+        "moreores:mineral_silver",
+        "mineralberries_moreores_silver_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_moreores_silver_bush_berries.png",
+        4,
+        400)
+    mineralberries.register_berry("moreores:mithril_lump",
+        "Mithril",
+        "moreores:mineral_mithril",
+        "mineralberries_moreores_mithril_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_moreores_mithril_bush_berries.png",
+        5,
+        500)
+end
+
+--technic
+if core.get_modpath("technic") then
+    mineralberries.register_berry("technic:chromium_lump",
+        "Chromium",
+        "technic:mineral_chromium",
+        "mineralberries_technic_chromium_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_technic_chromium_bush_berries.png",
+        5,
+        500)
+    mineralberries.register_berry("technic:lead_lump",
+        "Lead",
+        "technic:mineral_lead",
+        "mineralberries_technic_lead_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_technic_lead_bush_berries.png",
+        3,
+        300)
+    mineralberries.register_berry("technic:uranium_lump",
+        "Uranium",
+        "technic:mineral_uranium",
+        "mineralberries_technic_uranium_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_technic_uranium_bush_berries.png",
+        5,
+        500)
+    mineralberries.register_berry("technic:zinc_lump",
+        "Zinc",
+        "technic:mineral_zinc",
+        "mineralberries_technic_zinc_bush_berries.png",
+        "mineralberries_bush.png",
+        "mineralberries_bush.png^mineralberries_technic_zinc_bush_berries.png",
+        5,
+        500)
+end
