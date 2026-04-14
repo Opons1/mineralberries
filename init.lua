@@ -121,3 +121,13 @@ if core.get_modpath("technic") then
         5,
         500)
 end
+if core.get_modpath("terumet") then
+    mineralberries.register_berry("terumet:lump_raw",
+    "Terumetal",
+    "terumet:ore_raw",
+    "mineralberries_terumetal_bush_berries.png",
+    "mineralberries_bush.png",
+    "mineralberries_bush.png^mineralberries_terumetal_bush_berries.png",
+    5,
+    500)
+end
