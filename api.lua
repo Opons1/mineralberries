@@ -27,6 +27,7 @@ core.register_node("mineralberries:harvester", {
     end,
 })
 if core.get_modpath("techage") then
+    --code taken from techage
     techage.register_node({"mineralberries:harvester"}, 
     {
         on_pull_item = function(pos, in_dir, num)
@@ -34,7 +35,11 @@ if core.get_modpath("techage") then
             local inv = meta:get_inventory()
             return techage.get_items(pos, inv, "main", num)
         end,
-
+        on_unpull_item = function(pos, in_dir, stack)
+            local meta = core.get_meta(pos)
+            local inv = meta:get_inventory()
+            return techage.put_items(inv, "main", stack)
+        end,
     })
 end
 if mineralberries.settings.enable_harvester_craft == true then
