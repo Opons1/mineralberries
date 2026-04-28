@@ -3,6 +3,9 @@ core.register_node("mineralberries:harvester", {
     description = "Mineral Berry Harvester",
     tiles = {"mineralberries_harvester_top.png", "mineralberries_harvester_bottom.png", "mineralberries_harvester_side.png"},
     groups = {cracky = 2, level = 2},
+    tube = {
+	    input_inventory = "main",
+        },
     on_construct = function(pos)
         local below = {x=pos.x, y=pos.y-1, z=pos.z}
         local meta = core.get_meta(pos)
@@ -23,6 +26,17 @@ core.register_node("mineralberries:harvester", {
         end
     end,
 })
+if core.get_modpath("techage") then
+    techage.register_node({"mineralberries:harvester"}, 
+    {
+        on_pull_item = function(pos, in_dir, num)
+            local meta = core.get_meta(pos)
+            local inv = meta:get_inventory()
+            return techage.get_items(pos, inv, "main", num)
+        end,
+
+    })
+end
 if mineralberries.settings.enable_harvester_craft == true then
     core.register_craft({
         output = "mineralberries:harvester",
