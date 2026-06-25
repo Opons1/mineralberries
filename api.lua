@@ -22,7 +22,8 @@ core.register_node("mineralberries:harvester", {
             else
                 core.add_item({x = pos.x, y = pos.y + 1.5, z = pos.z}, mineralberries.bushes[core.get_node(below).name].drops)
             end
-            core.set_node(below, {name = mineralberries.bushes[core.get_node(below).name].name})
+            local nodebelow = mineralberries.bushes[core.get_node(below).name]
+            core.set_node(below, {name = nodebelow.name})
         end
     end,
 })
@@ -71,7 +72,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
     if bush_rarity then
         bush_rarity = 1/bush_rarity/mineralberries.settings.rarity_multiplier
     end
-    mineralberries.bushes[bush_name_with_berries] = {name = bush_name, drops = berry_name.." "..berries_dropped}
+    mineralberries.bushes[bush_name_with_berries] = {name = bush_name, drops = berry_name.." "..berries_dropped, timer = growth_timer}
     --register berries
     core.register_craftitem(":"..berry_name, {
         description = ore_name .. " Berry",
@@ -126,6 +127,7 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
             local drops = berry_name.." "..berries_dropped
             local timer = core.get_node_timer(pos)
             if mineralberries.settings.require_ore_below == true and node_below.name ~= oreblock then
+                timer:start(growth_timer)
                 return
             end
             if node_above.name == "mineralberries:harvester" then
@@ -142,7 +144,6 @@ function mineralberries.register_berry(ore, ore_name, oreblock, berry_texture, b
                 end
             end
             core.set_node(pos, {name = bush_name_with_berries})
-            timer:start(growth_timer)
         end,
     })
     core.register_node(":"..bush_name_with_berries, {
